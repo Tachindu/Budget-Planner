@@ -1,0 +1,9 @@
+# Frontend ignores (React/Vue/etc.)
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# Backend ignores (Node.js/Python/etc.)
+backend/node_modules/
+backend/.env
+backend/__pycache__/
