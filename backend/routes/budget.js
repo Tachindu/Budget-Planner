@@ -12,4 +12,11 @@ router.get('/', authMiddleware, budgetController.getBudgetItems);
 // Get monthly summary (optional, can be implemented in controller)
 router.get('/summary', authMiddleware, budgetController.getMonthlySummary);
 
+// Delete budget item by ID
+router.delete('/:id', authMiddleware, budgetController.deleteBudgetItem);
+
+// Update budget item by ID
+router.put('/:id', authMiddleware, budgetController.updateBudgetItem);
+
+
 module.exports = router;

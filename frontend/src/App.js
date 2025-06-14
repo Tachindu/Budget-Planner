@@ -1,28 +1,3 @@
-/*import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;*/
 
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
@@ -30,15 +5,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import Reports from './pages/Reports';
 
-/*function App() {
-  const [auth, setAuth] = useState(() => {
-    const token = localStorage.getItem('token');
-    const user = JSON.parse(localStorage.getItem('user'));
-    return token && user ? { token, user } : null;
-  });*/
-
-  function App() {
+function App() {
   const [auth, setAuth] = useState(() => {
     const token = localStorage.getItem('token');
     let user = null;
@@ -50,7 +19,7 @@ import Dashboard from './pages/Dashboard';
     } catch (err) {
       console.error('Failed to parse user from localStorage:', err);
     }
-    return token && user ? { token, user } : null;
+    return token ? { token, user } : null;
   });
 
   // Protect routes for logged-in users
@@ -61,14 +30,27 @@ import Dashboard from './pages/Dashboard';
   return (
     <Router>
       <Routes>
+        {/* Redirect root to dashboard */}
         <Route path="/" element={<Navigate to="/dashboard" />} />
+
+        {/* Public routes */}
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login setAuth={setAuth} />} />
+
+        {/* Protected routes */}
         <Route
           path="/dashboard"
           element={
             <PrivateRoute>
               <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/reports"
+          element={
+            <PrivateRoute>
+              <Reports />
             </PrivateRoute>
           }
         />
@@ -78,4 +60,3 @@ import Dashboard from './pages/Dashboard';
 }
 
 export default App;
-

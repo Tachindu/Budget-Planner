@@ -67,14 +67,3 @@ router.post('/login', async (req, res) => {
 
 module.exports = router;
 
-/*const express = require('express');
-const router = express.Router();
-const authController = require('../controllers/authController');
-
-// Register new user
-router.post('/register', authController.registerUser);
-
-// Login user
-router.post('/login', authController.loginUser);
-
-module.exports = router;*/

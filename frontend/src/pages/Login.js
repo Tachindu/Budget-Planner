@@ -52,15 +52,3 @@ export default function Login({ setAuth }) {
 }
 
 
-/*
-<form onSubmit={handleSubmit}>
-
-        <label>Username</label>
-        <input type="text" name="username" value={formData.username} onChange={handleChange} required />
-
-        <label>Password</label>
-        <input type="password" name="password" value={formData.password} onChange={handleChange} required />
-
-        <button type="submit">Login</button>
-      </form>
-      */

@@ -14,7 +14,7 @@ const budgetSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  type: {            // Add 'type' to differentiate Income or Expense
+  type: {            
     type: String,
     enum: ['income', 'expense'],
     required: true
